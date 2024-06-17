@@ -84,11 +84,11 @@
 <body>
 
     <header class="header">
-        <h1>VektetKarakterer</h1>
+        <h1>Utregning av karakter i IN1010</h1>
     </header>
 
     <div class="lageVektetKarakter">
-        <p>Hva fikk du på midtveis?</p>
+        <p style="display:flex; justify-content: center; align-content: center;">Hva fikk du på midtveis?</p>
         <div class="form-floating mb-3">
             <input type="number" min="0" max="100" class="form-control" id="poeng" name="poeng" placeholder="87">
             <label for="poeng">Poengsum</label>
@@ -100,7 +100,7 @@
         </div>
 
 
-        <button onclick="lagVektetKarakter()" type="button" class="btn btn-primary">Lag et par</button>
+        <button onclick="lagVektetKarakter()" type="button" class="btn btn-primary">Bekreft poengsum og vekting</button>
 
 
 
@@ -112,8 +112,8 @@
 
         <div class="slidecontainer">
             <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-            <p>Siste karakter: <span id="sistePoengSum"></span></p>
-            <p>Beste karakter mulig: <span id="besteKarakterMulig"></span></p>
+            <p>Karakter på hovedeksamen: <span id="sistePoengSum"></span></p>
+            <p>Endelig poengsum i faget: <span id="besteKarakterMulig"></span></p>
         </div>
 
 
