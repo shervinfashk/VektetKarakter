@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VektetKarakterer</title>
+    <link href="./styles.css" rel="stylesheet">
+    <script src="myscripts.js" type="text/javascript"></script>
+
+    <script>
+        var oppnaddeKarakterer = [];
+    </script>
+
+    <script>
+
+        class VektetKarakterer {
+            constructor(poeng, vekting) {
+                this.poeng = poeng;
+                this.vekting = vekting;
+            }
+
+            hentVekting() {
+                return this.vekting;
+            }
+
+            hentVektetKarakter() {
+                return (this.poeng * this.vekting) / 100;
+            }
+
+            toString() {
+                return "Poeng: " + this.poeng + ", vekting: " + this.vekting;
+            }
+        }
+
+    </script>
+
+    <script>
+        function skrivUtVektet() {
+            let list = document.getElementById("myList");
+
+            let li = document.createElement('li');
+            li.innerText = oppnaddeKarakterer[oppnaddeKarakterer.length - 1].toString();
+            list.appendChild(li);
+        }
+
+    </script>
+
+    <script>
+        function lagVektetKarakter() {
+            var vekting = parseFloat(document.getElementById("vekting").value);
+            var poeng = parseFloat(document.getElementById("poeng").value);
+
+            var vk = new VektetKarakterer(poeng, vekting);
+
+            oppnaddeKarakterer.push(vk);
+            skrivUtVektet();
+        }
+    </script>
+
+    <script>
+        function regnUtHøyestePoengMulig(sistePoengSum) {
+            var totalVekting = 0;
+            var totalSum = 0;
+
+            oppnaddeKarakterer.forEach(myFunction);
+
+            function myFunction(verdi) {
+                totalSum += verdi.hentVektetKarakter();
+                totalVekting += verdi.hentVekting();
+            }
+
+            var sistePoeng = new VektetKarakterer(sistePoengSum, 100 - totalVekting);
+            return totalSum + sistePoeng.hentVektetKarakter();
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <header class="header">
+        <h1>VektetKarakterer</h1>
+    </header>
+
+    <div class="lageVektetKarakter">
+
+
+
+            <label for="poeng">Poengsum</label><br>
+            <input type="number" min="0" max="100" id="poeng" name="poeng"><br>
+            <label for="vekting">Vekting</label><br>
+            <input type="number" min="0" max="100" id="vekting" name="vekting">
+            <button onclick="lagVektetKarakter()">Lag et par</button>
+
+
+    </div>
+
+
+    <div class="regnUtHoyestMulig">
+
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <p>Siste karakter: <span id="sistePoengSum"></span></p>
+            <p>Beste karakter mulig: <span id="besteKarakterMulig"></span></p>
+        </div>
+
+
+
+
+
+        <script>
+
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("besteKarakterMulig");
+            var siste = document.getElementById("sistePoengSum");
+            siste.innerHTML = slider.value
+
+
+            slider.oninput = function () {
+                siste.innerHTML = slider.value;
+                output.innerHTML = regnUtHøyestePoengMulig(slider.value);
+            }
+
+
+        </script>
+
+    </div>
+
+    <div class="oversiktOverKarakterer">
+        <ul id="myList"></ul>
+    </div>
+
+
+
+</body>
+
+
+<footer>
+
+</footer>
+
+</html>
