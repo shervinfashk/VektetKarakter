@@ -80,12 +80,13 @@
 
 </head>
 
+<header class="header">
+    <h1>Utregning av karakter i IN1010</h1>
+</header>
 
 <body>
 
-    <header class="header">
-        <h1>Utregning av karakter i IN1010</h1>
-    </header>
+
 
     <div class="lageVektetKarakter">
         <p style="display:flex; justify-content: center; align-content: center;">Hva fikk du på midtveis?</p>
@@ -93,14 +94,16 @@
             <input type="number" min="0" max="100" class="form-control" id="poeng" name="poeng" placeholder="87">
             <label for="poeng">Poengsum</label>
         </div>
+        <abbr title="I IN1010 utgjør midtveiseksamen 25% av karakteren">🛈</abbr>
         <div class="form-floating">
             <input type="number" value="25" min="0" max="100" class="form-control" id="vekting" name="vekting"
-                placeholder="Hvor mange % karakteren teller">
-            <label for="floatingPassword">Vekting</label>
+                placeholder="Hvor mange % karakteren teller" disabled>
+            <label for="vekting">Vekting</label>
         </div>
 
 
-        <button onclick="lagVektetKarakter()" type="button" class="btn btn-primary">Bekreft poengsum og vekting</button>
+        <button onclick="lagVektetKarakter()" type="button" class="btn btn-primary" data-bs-toggle="button">Bekreft
+            poengsum</button>
 
 
 
