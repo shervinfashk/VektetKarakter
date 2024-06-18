@@ -37,15 +37,26 @@ abbr[title]:focus::after {
 }
 
 .oversiktOverKarakterer {
+    align-content: center;
+    margin: 25px auto auto;
+    gap: 1em;
+    width: 70%;
+    padding-top: 10px;
+}
+
+/* .oversiktOverKarakterer p {
     justify-content: center;
     align-content: center;
     display: flex;
     flex-direction: column;
     margin: 25px auto auto;
     gap: 1em;
-    width: 70%;
-    height: 10%;
+} */
+
+p {
+    text-align: center;
 }
+
 
 
 
