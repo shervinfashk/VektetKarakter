@@ -13,6 +13,7 @@
 
     <script>
         var oppnaddeKarakterer = [];
+        var varslet = false;
     </script>
 
     <script>
@@ -50,6 +51,10 @@
                 list.firstChild.remove()
             }
 
+            if (oppnaddeKarakterer.length < 1) {
+                return;
+            }
+
             let li = document.createElement('li');
             li.innerText = oppnaddeKarakterer[oppnaddeKarakterer.length - 1].toString();
             list.appendChild(li);
@@ -62,7 +67,7 @@
             var vekting = parseFloat(document.getElementById("vekting").value);
             var poeng = parseFloat(document.getElementById("poeng").value);
 
-            if ((vekting > 100 || vekting < 0) || (poeng > 100 || poeng < 0)) {
+            if ((vekting > 100 || vekting < 0) || (poeng > 100 || poeng < 0) || isNaN(poeng)) {
                 alert("Poengsummen kan ikke være mindre enn 0 eller større enn 100!");
                 return;
             }
@@ -78,7 +83,7 @@
             let knapp = document.createElement('button');
             knapp.onclick = fjernKarakter;
             knapp.type = 'button';
-            knapp.className = 'btn btn-primary';
+            knapp.className = 'btn btn-danger';
             knapp.textContent = 'Fjern karakter';
 
             let buttonContainer = document.getElementById('lageVektetKarakter');
@@ -109,6 +114,12 @@
 
     <script>
         function regnUtHøyestePoengMulig(sistePoengSum) {
+
+            if (oppnaddeKarakterer.length < 1 && !(varslet)) {
+                alert("Husk å legge til oppnådd karakter fra midtveiseksamen!")
+                varslet = true;
+            }
+
             var totalVekting = 0;
             var totalSum = 0;
 
@@ -124,9 +135,8 @@
         }
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', leggTilKnappHvisBetingelseOppfylt);
-    </script>
+    
+
     <meta charset="UTF-8">
 
 </head>
