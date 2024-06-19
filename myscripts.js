@@ -124,7 +124,7 @@ function skrivUtVektet() {
 
   let karakter = oppnaddeKarakterer[0];
   let li = document.createElement("p");
-  li.innerText = "Oppnådde poeng på midtveiseksamen: " + karakter.hentPoeng();
+  li.innerText = "Oppnådde poeng på midtveiseksamen: " + karakter.hentPoeng() + " " + "Dette tilsvarer bokstavverdi: " + regnUtKarakterVerdi(karakter.hentPoeng());
   list.appendChild(li);
   list.style.backgroundColor = "#fdb347CC";
   list.classList.add("rounded-lg");
