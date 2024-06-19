@@ -4,7 +4,20 @@ function oppdaterPoeng() {
   var siste = document.getElementById("sistePoengSum");
 
   siste.innerHTML = slider.value;
-  output.innerHTML = regnUtHøyestePoengMulig(slider.value);
+  output.innerHTML = regnUtHøyestePoengMulig(slider.value) + "\n" + "Dette tilsvarer bokstavverdi: " + regnUtKarakterVerdi(regnUtHøyestePoengMulig(slider.value));
+
+
+}
+
+function regnUtKarakterVerdi(verdi) {
+
+    if (verdi >= 92) return "A";
+    if (verdi >= 77) return "B";
+    if (verdi >= 58) return "C";
+    if (verdi >= 46) return "D";
+    if (verdi >= 40) return "E";
+    return "F";
+
 }
 
 function regnUtHøyestePoengMulig(sistePoengSum) {
