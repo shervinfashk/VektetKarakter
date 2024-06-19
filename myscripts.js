@@ -3,8 +3,8 @@ function oppdaterPoeng() {
   var output = document.getElementById("besteKarakterMulig");
   var siste = document.getElementById("sistePoengSum");
 
-  siste.innerHTML = slider.value;
-  output.innerHTML = regnUtHøyestePoengMulig(slider.value) + "\n" + "Dette tilsvarer bokstavverdi: " + regnUtKarakterVerdi(regnUtHøyestePoengMulig(slider.value));
+  siste.innerHTML = slider.value +  " Dette tilsvarer bokstavverdi: "+regnUtKarakterVerdi(slider.value) ;
+  output.innerHTML = regnUtHøyestePoengMulig(slider.value) + " " + "Dette tilsvarer bokstavverdi: " + regnUtKarakterVerdi(regnUtHøyestePoengMulig(slider.value));
 
 
 }
