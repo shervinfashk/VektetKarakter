@@ -7,9 +7,7 @@
     border-bottom: 10px solid #fdb347;
 }
 
-body {
-    height: 100vh;
-}
+
 
 abbr[title]:hover::after,
 abbr[title]:focus::after {
@@ -44,14 +42,6 @@ abbr[title]:focus::after {
     padding-top: 10px;
 }
 
-/* .oversiktOverKarakterer p {
-    justify-content: center;
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    margin: 25px auto auto;
-    gap: 1em;
-} */
 
 p {
     text-align: center;
@@ -67,9 +57,9 @@ p {
 
 
 body {
-    margin: 0;
     font-family: sans-serif;
     background: #f5f6f7;
+    min-height: 100vh;
 }
 
 
@@ -131,4 +121,19 @@ body {
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */
+}
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #fff;
 }
