@@ -155,69 +155,77 @@
 
 <body>
 
-    <header class="header">
-        <h1>Utregning av karakter i IN1010</h1>
-    </header>
+    <div class="wrapper">
 
-    <div class="lageVektetKarakter" id="lageVektetKarakter">
-        <p style="display:flex; justify-content: center; align-content: center;">Hva fikk du på midtveis?</p>
-        <div class="form-floating mb-3">
-            <input type="number" min="0" max="100" class="form-control" id="poeng" name="poeng" placeholder="87">
-            <label for="poeng">Poengsum</label>
+        <div class="content">
+
+            <header class="header">
+                <h1>Utregning av karakter i IN1010</h1>
+            </header>
+
+            <div class="lageVektetKarakter" id="lageVektetKarakter">
+                <p style="display:flex; justify-content: center; align-content: center;">Hva fikk du på midtveis?</p>
+                <div class="form-floating mb-3">
+                    <input type="number" min="0" max="100" class="form-control" id="poeng" name="poeng"
+                        placeholder="87">
+                    <label for="poeng">Poengsum</label>
+                </div>
+                <abbr title="I IN1010 utgjør midtveiseksamen 25% av karakteren">🛈</abbr>
+                <div class="form-floating mb-3">
+                    <input type="number" value="25" min="0" max="100" class="form-control" id="vekting" name="vekting"
+                        placeholder="Hvor mange % karakteren teller" disabled>
+                    <label for="vekting">Vekting</label>
+                </div>
+
+
+                <button onclick="lagVektetKarakter()" type="button" class="btn btn-primary">Bekreft poengsum</button>
+
+            </div>
+
+            <div class="oversiktOverKarakterer rounded-3" id="oversiktOverKarakterer">
+
+            </div>
+
+
+            <div class="regnUtHoyestMulig">
+
+
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    <p>Karakter på hovedeksamen: <span id="sistePoengSum"></span></p>
+                    <p>Endelig poengsum i faget: <span id="besteKarakterMulig"></span></p>
+                </div>
+
+
+
+
+
+                <script>
+
+                    var slider = document.getElementById("myRange");
+                    var output = document.getElementById("besteKarakterMulig");
+                    var siste = document.getElementById("sistePoengSum");
+                    siste.innerHTML = slider.value
+
+
+                    slider.oninput = function () {
+                        siste.innerHTML = slider.value;
+                        output.innerHTML = regnUtHøyestePoengMulig(slider.value);
+                    }
+
+
+                </script>
+
+            </div>
+
+
+
         </div>
-        <abbr title="I IN1010 utgjør midtveiseksamen 25% av karakteren">🛈</abbr>
-        <div class="form-floating mb-3">
-            <input type="number" value="25" min="0" max="100" class="form-control" id="vekting" name="vekting"
-                placeholder="Hvor mange % karakteren teller" disabled>
-            <label for="vekting">Vekting</label>
-        </div>
-
-
-        <button onclick="lagVektetKarakter()" type="button" class="btn btn-primary">Bekreft poengsum</button>
-
+        <footer>
+            <p>&copy; 2023 IP-adressekonverteringsprogrammet. Alle rettigheter reservert. Laget av <a
+                    href="https://github.com/shervinfashk" style="color: #fff;">Shervin Fashkhami</a>.</p>
+        </footer>
     </div>
-
-    <div class="oversiktOverKarakterer rounded-3" id="oversiktOverKarakterer">
-
-    </div>
-
-
-    <div class="regnUtHoyestMulig">
-
-
-        <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-            <p>Karakter på hovedeksamen: <span id="sistePoengSum"></span></p>
-            <p>Endelig poengsum i faget: <span id="besteKarakterMulig"></span></p>
-        </div>
-
-
-
-
-
-        <script>
-
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("besteKarakterMulig");
-            var siste = document.getElementById("sistePoengSum");
-            siste.innerHTML = slider.value
-
-
-            slider.oninput = function () {
-                siste.innerHTML = slider.value;
-                output.innerHTML = regnUtHøyestePoengMulig(slider.value);
-            }
-
-
-        </script>
-
-    </div>
-
-
-    <footer>
-        <p>&copy; 2023 IP-adressekonverteringsprogrammet. Alle rettigheter reservert. Laget av <a
-                href="https://github.com/shervinfashk" style="color: #fff;">Shervin Fashkhami</a>.</p>
-    </footer>
 
 </body>
 
